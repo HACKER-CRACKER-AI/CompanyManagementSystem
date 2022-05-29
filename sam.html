@@ -1,0 +1,40 @@
+<html>
+<head><title>works</title></head>
+<body bgcolor="yellow" text="purple">
+<h1>Employee</h1>
+<form action="" method="">
+<p>SSN:<input type="text" name="W1" size="20"></p>
+<p><input type="submit" value="Submit">
+    <input type="reset" value="Reset"></p>
+</form>
+<u><a href="link2.html" target="main">   Main Menu   </a></u> 
+</body>
+</html>
+
+<?php
+
+include 'connection.php';
+
+if(isset($_POST['submit'])){
+    $SSN=$_POST['SSN'];
+
+    $insertquery="insert into employee(SSN) values($SSN)";
+
+    mysqli_query($con,$insertquery);
+
+    if($res){
+        ?>
+        <script>
+            alert("Inserted");
+        </script>
+        <?php
+    }else{
+        ?>
+        <script>
+            alert("Not Inserted");
+        </script>
+        <?php
+    }
+
+}
+?>
